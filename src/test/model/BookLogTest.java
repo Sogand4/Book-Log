@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 // Unit tests for the BookLogTest class.
@@ -13,6 +14,7 @@ public class BookLogTest {
     private List<Book> books;
     private Book testBook1;
     private Book testBook2;
+    private Book testBook3;
 
     @BeforeEach
     void runBefore() {
@@ -20,88 +22,108 @@ public class BookLogTest {
         testBook1 = new Book("To Kill a Mockingbird", "Harper Lee", 4, true);
         testBook2 = new Book("How to Win Friends and Influence People",
                 "Dale Carnegie", 3, false);
+        testBook3 = new Book("The Hate U Give", "Angie Thomas", 4, true);
     }
 
     @Test
     void testConstructor() {
         books = testBookLog.getBookLog();
-        assertEquals(0,books.size());
+        assertEquals(0, books.size());
     }
 
     @Test
     void testGetLogInOrderHighestRating() {
         testBookLog.addBook(testBook1);
-        books = testBookLog.getLogInOrderHighestRating();
-        assertEquals(testBook1, books.get(0));
         testBookLog.addBook(testBook2);
+        testBookLog.addBook(testBook3);
         books = testBookLog.getLogInOrderHighestRating();
         assertEquals(testBook1, books.get(0));
+        assertEquals(testBook3, books.get(1));
+        assertEquals(testBook2, books.get(2));
+    }
+
+    @Test
+    void testGetLogInOrderRecentlyAdded() {
+        testBookLog.addBook(testBook1);
+        testBookLog.addBook(testBook2);
+        testBookLog.addBook(testBook3);
+        books = testBookLog.getLogInOrderRecentlyAdded();
+        assertEquals(testBook3, books.get(0));
         assertEquals(testBook2, books.get(1));
+        assertEquals(testBook1, books.get(2));
     }
 
     @Test
     void testNumBooksRead() {
         assertEquals(0, testBookLog.numBooksRead());
         testBookLog.addBook(testBook1);
-        assertEquals(1, testBookLog.numBooksRead());
         testBookLog.addBook(testBook2);
-        assertEquals(2, testBookLog.numBooksRead());
+        testBookLog.addBook(testBook3);
+        assertEquals(3, testBookLog.numBooksRead());
     }
 
     @Test
     void testIsBookInLog() {
         assertFalse(testBookLog.isBookInLog(testBook1));
+        assertFalse(testBookLog.isBookInLog(testBook2));
+        assertFalse(testBookLog.isBookInLog(testBook3));
         testBookLog.addBook(testBook1);
-        assertTrue(testBookLog.isBookInLog(testBook1));
         testBookLog.addBook(testBook2);
+        testBookLog.addBook(testBook3);
         assertTrue(testBookLog.isBookInLog(testBook1));
         assertTrue(testBookLog.isBookInLog(testBook2));
+        assertTrue(testBookLog.isBookInLog(testBook3));
     }
 
     @Test
     void testRemoveBook() {
         testBookLog.addBook(testBook1);
         testBookLog.addBook(testBook2);
-        testBookLog.removeBook(testBook1);
+        testBookLog.addBook(testBook3);
+        testBookLog.removeBook(testBook2);
         books = testBookLog.getBookLog();
         assertEquals(testBook1, books.get(0));
-        assertEquals(1, books.size());
+        assertEquals(testBook3, books.get(1));
+        assertEquals(2, books.size());
         testBookLog.removeBook(testBook1);
+        testBookLog.removeBook(testBook3);
         assertEquals(0, books.size());
     }
 
     @Test
     void testAddBook() {
         testBookLog.addBook(testBook1);
+        testBookLog.addBook(testBook2);
+        testBookLog.addBook(testBook3);
         books = testBookLog.getBookLog();
         assertEquals(testBook1, books.get(0));
-        assertEquals(1, books.size());
+        assertEquals(testBook2, books.get(1));
+        assertEquals(testBook3, books.get(2));
+        assertEquals(3, books.size());
+    }
+
+    @Test
+    void testGetFictionBooks() {
+        testBookLog.addBook(testBook1);
         testBookLog.addBook(testBook2);
-        books = testBookLog.getBookLog();
-        assertEquals(testBook2, books.get(0));
-        assertEquals(testBook1, books.get(1));
+        testBookLog.addBook(testBook3);
+        books = testBookLog.getFictionBooks();
         assertEquals(2, books.size());
-    }
-
-    @Test
-    void testGetFictionalBooks() {
-        testBookLog.addBook(testBook2);
-        books = testBookLog.getNonfictionalBooks();
-        assertEquals(1, books.size());
-        testBookLog.addBook(testBook1);
-        books = testBookLog.getFictionalBooks();
-        assertEquals(1, books.size());
         assertEquals(testBook1, books.get(0));
+        assertEquals(testBook3, books.get(1));
     }
 
     @Test
-    void testGetNonfictionalBooks() {
+    void testGetNonfictionBooks() {
+        Book testBook4 = new Book("Atomic Habits: An Easy and Proven Way to Build Good Habits and Break Bad Ones",
+                "James Clear", 5, false);
         testBookLog.addBook(testBook1);
-        books = testBookLog.getNonfictionalBooks();
-        assertEquals(0, books.size());
         testBookLog.addBook(testBook2);
-        books = testBookLog.getNonfictionalBooks();
-        assertEquals(1, books.size());
+        testBookLog.addBook(testBook3);
+        testBookLog.addBook(testBook4);
+        books = testBookLog.getNonfictionBooks();
+        assertEquals(2, books.size());
         assertEquals(testBook2, books.get(0));
+        assertEquals(testBook4, books.get(1));
     }
 }

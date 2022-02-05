@@ -10,40 +10,43 @@ public class Book {
 
     // REQUIRES: rating is an int in [1,5]
     // EFFECTS: constructs a Book with a title, author, and rating
-    public Book(String title, String author, int rating, boolean fiction) {
-        //stub
+    public Book(String title, String author, int rating, boolean type) {
+        this.title = title;
+        this.author = author;
+        this.rating = rating;
+        this.type = type;
     }
 
     public String getTitle() {
-        return null; //stub
+        return title;
     }
 
     public String getAuthor() {
-        return null; //stub
+        return author;
     }
 
     public int getRating() {
-        return 0; //stub
+        return rating;
     }
 
     public boolean getType() {
-        return false; //stub
+        return type;
     }
 
     public void setTitle(String title) {
-        //stub
+        this.title = title;
     }
 
     public void setAuthor(String author) {
-        //stub
+        this.author = author;
     }
 
     // REQUIRES: rating is an int in [1,5]
     public void setRating(int rating) {
-        //stub
+        this.rating = rating;
     }
 
     public void setType(Boolean type) {
-        //stub
+        this.type = type;
     }
 }

@@ -14,5 +14,8 @@ where I can keep track of what I have read.
 - As a user, I want to be able to edit a book to my book log
 - As a user, I want to be able to view a list of the titles of the books in my book log, sorted by recently added
 - As a user, I want to be able to view a list of all the book titles in my book log, sorted by their ratings
+- As a user, I want to be able to view a list of all the fictional books in my book log
+- As a user, I want to be able to view a list of all the nonfictional books in my book log
 - As a user, I want to be able to select a book in my book log and view the book in detail
 - As a user, I want to be able to check how many books are in my book log
+- As a user, I want to see if I have read a particular book

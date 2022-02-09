@@ -32,21 +32,4 @@ public class Book {
     public boolean getType() {
         return type;
     }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    // REQUIRES: rating is an int in [1,5]
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public void setType(Boolean type) {
-        this.type = type;
-    }
 }

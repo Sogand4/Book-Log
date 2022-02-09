@@ -43,50 +43,17 @@ public class BookLogTest {
     }
 
     @Test
-    void testGetLogInOrderRecentlyAdded() {
-        testBookLog.addBook(testBook1);
-        testBookLog.addBook(testBook2);
-        testBookLog.addBook(testBook3);
-        books = testBookLog.getLogInOrderRecentlyAdded();
-        assertEquals(testBook3, books.get(0));
-        assertEquals(testBook2, books.get(1));
-        assertEquals(testBook1, books.get(2));
-    }
-
-    @Test
-    void testNumBooksRead() {
-        assertEquals(0, testBookLog.numBooksRead());
-        testBookLog.addBook(testBook1);
-        testBookLog.addBook(testBook2);
-        testBookLog.addBook(testBook3);
-        assertEquals(3, testBookLog.numBooksRead());
-    }
-
-    @Test
-    void testIsBookInLog() {
-        assertFalse(testBookLog.isBookInLog(testBook1));
-        assertFalse(testBookLog.isBookInLog(testBook2));
-        assertFalse(testBookLog.isBookInLog(testBook3));
-        testBookLog.addBook(testBook1);
-        testBookLog.addBook(testBook2);
-        testBookLog.addBook(testBook3);
-        assertTrue(testBookLog.isBookInLog(testBook1));
-        assertTrue(testBookLog.isBookInLog(testBook2));
-        assertTrue(testBookLog.isBookInLog(testBook3));
-    }
-
-    @Test
     void testRemoveBook() {
         testBookLog.addBook(testBook1);
         testBookLog.addBook(testBook2);
         testBookLog.addBook(testBook3);
-        testBookLog.removeBook(testBook2);
+        testBookLog.removeBook(1);
         books = testBookLog.getBookLog();
         assertEquals(testBook1, books.get(0));
         assertEquals(testBook3, books.get(1));
         assertEquals(2, books.size());
-        testBookLog.removeBook(testBook1);
-        testBookLog.removeBook(testBook3);
+        testBookLog.removeBook(0);
+        testBookLog.removeBook(0);
         assertEquals(0, books.size());
     }
 

@@ -81,7 +81,7 @@ public class BookLogApp {
         }
     }
 
-    // EFFECTS: Displays the list of books to the user
+    // EFFECTS: displays the list of books to the user
     private void viewBookLog(List<Book> books) {
         for (int i = 0; i < books.size(); i++) {
             System.out.println(i + 1 + ") " + books.get(i).getTitle());

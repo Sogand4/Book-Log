@@ -19,6 +19,7 @@ public class BookLogApp {
 
     // MODIFIES: this
     // EFFECTS: processes user input
+    // Parts of code taken from TellerApp: https://github.students.cs.ubc.ca/CPSC210/TellerApp
     private void runBookLog() {
         boolean keepGoing = true;
         int command;

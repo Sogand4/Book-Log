@@ -13,10 +13,6 @@ public class BookLog {
         bookLog = new ArrayList<>();
     }
 
-    public List<Book> getBookLog() {
-        return bookLog;
-    }
-
     // EFFECTS: Returns all the books listed in the book log, in the order of descending rating
     public List<Book> getLogInOrderHighestRating() {
         List<Book> sortedList = new ArrayList<>();
@@ -65,5 +61,9 @@ public class BookLog {
     // EFFECTS: Removes the book in the given index from the book log
     public void removeBook(int index) {
         bookLog.remove(index);
+    }
+
+    public List<Book> getBookLog() {
+        return bookLog;
     }
 }

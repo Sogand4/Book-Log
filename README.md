@@ -12,5 +12,6 @@ to have an application where I can keep track of what I have read.
 - As a user, I want to be able to select a book in my book log and view the book in detail
 - As a user, I want to be able to view a list of the titles of the books in my book log
 - As a user, I want to be able to view a list of all the book titles in my book log, sorted by their ratings
-- As a user, I want to be able to view a list of all the fictional books in my book log
-- As a user, I want to be able to view a list of all the nonfictional books in my book log
+- As a user, I want to be able to view a list of all the fictional/nonfictional books in my book log
+- As a user, I want to be able to save my book log to file
+- As a user, I want to be able to be able to load my book log from file

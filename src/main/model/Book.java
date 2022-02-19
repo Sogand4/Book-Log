@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a book having a title, author, rating, and type
-public class Book {
+public class Book implements Writable {
 
     private String title;        // title of the book
     private String author;       // author of the book
@@ -31,5 +34,15 @@ public class Book {
 
     public boolean getType() {
         return type;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("author", author);
+        json.put("rating", rating);
+        json.put("type", type);
+        return json;
     }
 }

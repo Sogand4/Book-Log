@@ -1,10 +1,14 @@
 package model;
 
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
+import java.util.List;
 
 // Represents a book log consisting of a list of books
-public class BookLog {
+public class BookLog implements Writable {
 
     private List<Book> bookLog;
 
@@ -65,5 +69,23 @@ public class BookLog {
 
     public List<Book> getBookLog() {
         return bookLog;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("books", booksToJson());
+        return json;
+    }
+
+    // EFFECTS: returns books in this booklog as a JSON array
+    private JSONArray booksToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Book b : bookLog) {
+            jsonArray.put(b.toJson());
+        }
+
+        return jsonArray;
     }
 }

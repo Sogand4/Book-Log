@@ -1,0 +1,14 @@
+{"books": [
+    {
+        "author": "Harper Lee",
+        "rating": 4,
+        "title": "To Kill a Mockingbird",
+        "type": true
+    },
+    {
+        "author": "Dale Carnegie",
+        "rating": 3,
+        "title": "How to Win Friends and Influence People",
+        "type": false
+    }
+]}

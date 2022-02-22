@@ -36,6 +36,7 @@ public class Book implements Writable {
         return type;
     }
 
+    // Code modelled after https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

@@ -12,7 +12,9 @@ import java.util.stream.Stream;
 import org.json.*;
 
 // Represents a reader that reads booklog from JSON data stored in file
+// Code modelled after https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 public class JsonReader {
+
     private String source;
 
     // EFFECTS: constructs reader to read from source file

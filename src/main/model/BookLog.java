@@ -71,6 +71,7 @@ public class BookLog implements Writable {
         return bookLog;
     }
 
+    // Code modelled after https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -78,7 +79,8 @@ public class BookLog implements Writable {
         return json;
     }
 
-    // EFFECTS: returns books in this booklog as a JSON array
+    // EFFECTS: returns books in this bookLog as a JSON array
+    // Code modelled after https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private JSONArray booksToJson() {
         JSONArray jsonArray = new JSONArray();
 

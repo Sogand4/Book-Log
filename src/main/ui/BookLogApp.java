@@ -2,18 +2,27 @@ package ui;
 
 import model.Book;
 import model.BookLog;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 // Book Log application
 public class BookLogApp {
+    private static final String JSON_BOOKLOG = "./data/bookLog.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     private Scanner input = new Scanner(System.in);
     private BookLog myBookLog = new BookLog();
 
     // EFFECTS: runs the teller application
-    public BookLogApp() {
+    public BookLogApp() throws FileNotFoundException {
+        jsonWriter = new JsonWriter(JSON_BOOKLOG);
+        jsonReader = new JsonReader(JSON_BOOKLOG);
         runBookLog();
     }
 
@@ -42,8 +51,20 @@ public class BookLogApp {
     // EFFECTS: processes user command
     @SuppressWarnings("methodlength")
     private void processCommand(int command) {
-        if (command == 1) {
-            doAddBook();
+        if (command == 1 || command == 8 || command == 9) {
+            switch (command) {
+                case 1:
+                    doAddBook();
+                    break;
+                case 8:
+                    saveBookLog();
+                    break;
+                case 9:
+                    loadBookLog();
+                    break;
+                default:
+                    break;
+            }
         } else if (myBookLog.getBookLog().size() == 0 && command > 0 && command <= 7) {
             System.out.println("Your book log is empty. Try adding a book!");
         } else {
@@ -172,6 +193,33 @@ public class BookLogApp {
         System.out.println("\t5) View book log in order of descending rating");
         System.out.println("\t6) View all fiction books");
         System.out.println("\t7) View all nonfiction books");
+        System.out.println("\t8) Save book log to file");
+        System.out.println("\t9) Load book log from file");
         System.out.println("\t0) QUIT");
+    }
+
+    // EFFECTS: saves the booklog to file
+    // Code taken from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+    private void saveBookLog() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(myBookLog);
+            jsonWriter.close();
+            System.out.println("Saved your bookLog to " + JSON_BOOKLOG);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_BOOKLOG);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads booklog from file
+    // Code taken from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+    private void loadBookLog() {
+        try {
+            myBookLog = jsonReader.read();
+            System.out.println("Loaded your bookLog from " + JSON_BOOKLOG);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_BOOKLOG);
+        }
     }
 }

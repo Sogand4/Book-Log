@@ -10,6 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Code modelled after https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 public class JsonWriterTest extends JsonTest {
 
     BookLog bl;
@@ -24,9 +25,8 @@ public class JsonWriterTest extends JsonTest {
         try {
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
-            fail("IOException was expected");
+            fail("IOException not thrown");
         } catch (IOException e) {
-            // pass
         }
     }
 

@@ -20,6 +20,8 @@ public class JsonWriterTest extends JsonTest {
         bl = new BookLog();
     }
 
+    // Method modelled after JsonWriterTest class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     @Test
     void testWriterInvalidFile() {
         try {
@@ -27,9 +29,12 @@ public class JsonWriterTest extends JsonTest {
             writer.open();
             fail("IOException not thrown");
         } catch (IOException e) {
+            // pass
         }
     }
 
+    // Method modelled after JsonWriterTest class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     @Test
     void testWriterEmptyBookLog() {
         try {
@@ -46,6 +51,8 @@ public class JsonWriterTest extends JsonTest {
         }
     }
 
+    // Method modelled after JsonWriterTest class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     @Test
     void testWriterGeneralBookLog() {
         try {

@@ -71,23 +71,17 @@ public class BookLog implements Writable {
         return bookLog;
     }
 
-    // Code modelled after https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+    // EFFECTS: returns book log as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("books", booksToJson());
-        return json;
-    }
-
-    // EFFECTS: returns books in this bookLog as a JSON array
-    // Code modelled after https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
-    private JSONArray booksToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (Book b : bookLog) {
             jsonArray.put(b.toJson());
         }
 
-        return jsonArray;
+        json.put("books", jsonArray);
+        return json;
     }
 }

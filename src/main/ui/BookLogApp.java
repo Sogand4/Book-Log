@@ -198,8 +198,9 @@ public class BookLogApp {
         System.out.println("\t0) QUIT");
     }
 
-    // EFFECTS: saves the booklog to file
-    // Code taken from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+    // EFFECTS: saves the book log to file
+    // Method modelled after WorkRoomApp class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     private void saveBookLog() {
         try {
             jsonWriter.open();
@@ -212,8 +213,8 @@ public class BookLogApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: loads booklog from file
-    // Code taken from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+    // Method modelled after WorkRoomApp class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     private void loadBookLog() {
         try {
             myBookLog = jsonReader.read();

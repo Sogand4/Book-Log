@@ -12,7 +12,6 @@ import java.util.stream.Stream;
 import org.json.*;
 
 // Represents a reader that reads booklog from JSON data stored in file
-// Code modelled after https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 public class JsonReader {
 
     private String source;
@@ -24,6 +23,8 @@ public class JsonReader {
 
     // EFFECTS: reads booklog from file and returns it;
     // throws IOException if an error occurs reading data from file
+    // Method taken from JSONReader class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     public BookLog read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
@@ -31,6 +32,8 @@ public class JsonReader {
     }
 
     // EFFECTS: reads source file as string and returns it
+    // Method taken from JSONReader class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
@@ -41,7 +44,9 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses booklog from JSON object and returns it
+    // EFFECTS: parses book log from JSON object and returns it
+    // Method modelled after JSONReader class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     private BookLog parseBookLog(JSONObject jsonObject) {
         BookLog bl = new BookLog();
         addBooks(bl, jsonObject);
@@ -49,7 +54,9 @@ public class JsonReader {
     }
 
     // MODIFIES: bl
-    // EFFECTS: parses books from JSON object and adds them to booklog
+    // EFFECTS: parses books from JSON object and adds them to book log
+    // Method modelled after JSONReader class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     private void addBooks(BookLog bl, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("books");
         for (Object json : jsonArray) {
@@ -59,7 +66,7 @@ public class JsonReader {
     }
 
     // MODIFIES: bl
-    // EFFECTS: parses book from JSON object and adds it to booklog
+    // EFFECTS: parses book from JSON object and adds it to book log
     private void addBook(BookLog bl, JSONObject jsonObject) {
         String title = jsonObject.getString("title");
         String author = jsonObject.getString("author");

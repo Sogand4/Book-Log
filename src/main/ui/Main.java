@@ -2,8 +2,10 @@ package ui;
 
 import java.io.FileNotFoundException;
 
-// Code taken from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 public class Main {
+
+    // Method taken from Main class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     public static void main(String[] args) {
         try {
             new BookLogApp();

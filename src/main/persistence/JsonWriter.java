@@ -6,7 +6,6 @@ import org.json.JSONObject;
 import java.io.*;
 
 // Represents a writer that writes JSON representation of booklog to file
-// Code modelled after https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 public class JsonWriter {
 
     private static final int TAB = 4;
@@ -21,12 +20,16 @@ public class JsonWriter {
     // MODIFIES: this
     // EFFECTS: opens writer; throws FileNotFoundException if destination file cannot
     // be opened for writing
+    // Method taken from JSONWriter class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     public void open() throws FileNotFoundException {
         writer = new PrintWriter(new File(destination));
     }
 
     // MODIFIES: this
-    // EFFECTS: writes JSON representation of booklog to file
+    // EFFECTS: writes JSON representation of book log to file
+    // Method modelled after JSONWriter class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     public void write(BookLog bl) {
         JSONObject json = bl.toJson();
         saveToFile(json.toString(TAB));
@@ -40,6 +43,8 @@ public class JsonWriter {
 
     // MODIFIES: this
     // EFFECTS: writes string to file
+    // Method taken from JSONWriter class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     private void saveToFile(String json) {
         writer.print(json);
     }

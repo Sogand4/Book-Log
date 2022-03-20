@@ -213,6 +213,7 @@ public class BookLogApp {
     }
 
     // MODIFIES: this
+    // EFFECTS: loads the book log from file
     // Method modelled after WorkRoomApp class in
     // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     private void loadBookLog() {

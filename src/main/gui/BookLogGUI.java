@@ -2,6 +2,8 @@ package gui;
 
 import model.Book;
 import model.BookLog;
+import model.Event;
+import model.EventLog;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -18,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 // Represents a GUI for the Book Log
 public class BookLogGUI extends JPanel implements ListSelectionListener {
@@ -357,7 +361,7 @@ public class BookLogGUI extends JPanel implements ListSelectionListener {
     // https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Book Log");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         JComponent newContentPane = new BookLogGUI();
         newContentPane.setOpaque(true);
@@ -365,6 +369,16 @@ public class BookLogGUI extends JPanel implements ListSelectionListener {
 
         frame.pack();
         frame.setVisible(true);
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent w) {
+                for (Event e : EventLog.getInstance()) {
+                    System.out.println(e.getDescription());
+                }
+                System.exit(0);
+            }
+        });
     }
 
     // EFFECTS: Sets and displays the welcome image

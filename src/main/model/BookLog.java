@@ -59,11 +59,14 @@ public class BookLog implements Writable {
     // EFFECTS: Adds a book to the book log
     public void addBook(Book book) {
         bookLog.add(book);
+        EventLog.getInstance().logEvent(new Event(book.getTitle() + " was added to your book log!"));
     }
 
     // MODIFIES: this
     // EFFECTS: Removes the book in the given index from the book log
     public void removeBook(int index) {
+        EventLog.getInstance().logEvent(new Event(bookLog.get(index).getTitle()
+                + " was removed from your book log!"));
         bookLog.remove(index);
     }
 

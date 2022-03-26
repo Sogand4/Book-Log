@@ -3,7 +3,7 @@
         "author": "Author1",
         "rating": 1,
         "title": "Title1",
-        "type": false
+        "type": true
     },
     {
         "author": "Author2",
@@ -15,12 +15,6 @@
         "author": "Author3",
         "rating": 3,
         "title": "Title3",
-        "type": true
-    },
-    {
-        "author": "Author4",
-        "rating": 4,
-        "title": "Title4",
-        "type": true
+        "type": false
     }
 ]}

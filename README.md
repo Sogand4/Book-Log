@@ -15,3 +15,17 @@ to have an application where I can keep track of what I have read.
 - As a user, I want to be able to view a list of all the fictional/nonfictional books in my book log
 - As a user, I want to be able to save my book log to file
 - As a user, I want to be able to be able to load my book log from file
+
+## Phase 4: Task 2
+
+Title1 was added to your book log!<br>
+Title22 was added to your book log!<br>
+Title22 was removed from your book log!<br>
+Title2 was added to your book log!<br>
+Title3 was added to your book log!<br>
+
+## Phase 4: Task 3
+
+Changes I would make given more time:
+
+- Refactor BookLogGUI by taking out some of its nested classes and making them separate

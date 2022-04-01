@@ -9,6 +9,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+import model.Event;
+import model.EventLog;
 import org.json.*;
 
 // Represents a reader that reads booklog from JSON data stored in file
@@ -41,6 +43,7 @@ public class JsonReader {
             stream.forEach(s -> contentBuilder.append(s));
         }
 
+        EventLog.getInstance().logEvent(new Event("Loaded your book log!"));
         return contentBuilder.toString();
     }
 

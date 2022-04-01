@@ -1,20 +1,32 @@
 {"books": [
     {
-        "author": "Author1",
+        "author": "author1",
         "rating": 1,
-        "title": "Title1",
+        "title": "title1",
         "type": true
     },
     {
-        "author": "Author2",
+        "author": "author2",
         "rating": 2,
-        "title": "Title2",
+        "title": "title2",
         "type": true
     },
     {
-        "author": "Author3",
+        "author": "author3",
         "rating": 3,
-        "title": "Title3",
+        "title": "title3",
         "type": false
+    },
+    {
+        "author": "author4",
+        "rating": 4,
+        "title": "title4",
+        "type": true
+    },
+    {
+        "author": "author5",
+        "rating": 5,
+        "title": "title5",
+        "type": true
     }
 ]}

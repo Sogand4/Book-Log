@@ -1,6 +1,8 @@
 package persistence;
 
 import model.BookLog;
+import model.Event;
+import model.EventLog;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -47,5 +49,6 @@ public class JsonWriter {
     // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     private void saveToFile(String json) {
         writer.print(json);
+        EventLog.getInstance().logEvent(new Event("Saved your book log!"));
     }
 }

@@ -18,14 +18,24 @@ to have an application where I can keep track of what I have read.
 
 ## Phase 4: Task 2
 
-Title1 was added to your book log!<br>
-Title22 was added to your book log!<br>
-Title22 was removed from your book log!<br>
-Title2 was added to your book log!<br>
-Title3 was added to your book log!<br>
+Loaded your book log!<br>
+title1 was added to your book log!<br>
+title2 was added to your book log!<br>
+title3 was added to your book log!<br>
+title4 was added to your book log!<br>
+title55 was added to your book log!<br>
+title55 was removed from your book log!<br>
+title555 was added to your book log!<br>
+title5555 was added to your book log!<br>
+title5555 was removed from your book log!<br>
+title555 was removed from your book log!<br>
+title5 was added to your book log!<br>
+Saved your book log!
 
 ## Phase 4: Task 3
 
 Changes I would make given more time:
 
-- Refactor BookLogGUI by taking out some of its nested classes and making them separate
+- Refactor BookLogGUI by taking out some of its nested classes and making them separate. I would do this because it
+  would help with the readability of the program.
+

@@ -195,7 +195,7 @@ public class BookLogGUI extends JPanel implements ListSelectionListener {
     }
 
     // Represents a listener that listens for when "Save" or "Load" is pressed
-    class SaveAndLoadDataListener implements ActionListener {
+    private class SaveAndLoadDataListener implements ActionListener {
 
         private static final String JSON_BOOKLOG = "./data/bookLog.json";
         private JsonWriter jsonWriter = new JsonWriter(JSON_BOOKLOG);
@@ -235,7 +235,7 @@ public class BookLogGUI extends JPanel implements ListSelectionListener {
     }
 
     // Represents a listener that listens for when "Remove Book" pressed
-    class RemoveBookListener implements ActionListener {
+    private class RemoveBookListener implements ActionListener {
 
         // MODIFIES: bookTitlesList, bl, removeBookButton
         // EFFECTS: Removes the selected item from the list of book titles and disables
@@ -273,7 +273,7 @@ public class BookLogGUI extends JPanel implements ListSelectionListener {
     }
 
     // Represents a listener that listens for when "Add Book" is pressed
-    class AddBookListener implements ActionListener, DocumentListener {
+    private class AddBookListener implements ActionListener, DocumentListener {
         private String bookTitle;
         private String bookAuthor;
         private int bookRating;
@@ -359,7 +359,7 @@ public class BookLogGUI extends JPanel implements ListSelectionListener {
     // EFFECTS: Creates the GUI for the Book Log and displays it
     // Method taken from ListDemo.java found at
     // https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
-    private static void createAndShowGUI() {
+    public static void createAndShowGUI() {
         JFrame frame = new JFrame("Book Log");
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
@@ -400,11 +400,5 @@ public class BookLogGUI extends JPanel implements ListSelectionListener {
 
         frame.setVisible(false);
         frame.dispose();
-    }
-
-    // EFFECTS: Displays a welcome image then runs the BookLogGUI
-    public static void main(String[] args) {
-        displayWelcomeImage();
-        createAndShowGUI();
     }
 }
